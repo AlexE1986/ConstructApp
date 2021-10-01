@@ -17,7 +17,6 @@ function Home({ navigation }) {
 }
 
 export default function HomeScreen() {
-   navigation.navigate('Перечень расчётов');
 
    const HomeScreenStack = createNativeStackNavigator();
 

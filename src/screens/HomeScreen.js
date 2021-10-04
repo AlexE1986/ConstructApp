@@ -1,30 +1,16 @@
 import React, { } from "react";
 import { Image, View, Text, Button, StyleSheet } from "react-native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import CalcPipe from "../componetnts/calculations/CalcPipe";
-
-function Home({ navigation }) {
+export default function HomeScreen({ navigation }) {
    return (
-      <View>
+      <SafeAreaView>
          <Text>Перечень расчётов:</Text>
          <View style={styles.row}>
             <Image style={{ width: 50, height: 50 }} source={require('../../assets/calculations/pipe.png')} />
             <Button onPress={() => navigation.navigate('Калькулятор трубы')} title='К расчёту' />
          </View>
-      </View>
-   );
-}
-
-export default function HomeScreen() {
-
-   const HomeScreenStack = createNativeStackNavigator();
-
-   return (
-      <HomeScreenStack.Navigator initialRouteName='Перечень расчетов'>
-         <HomeScreenStack.Screen name='Перечень расчетов' component={Home} />
-         <HomeScreenStack.Screen name='Калькулятор трубы' component={CalcPipe} />
-      </HomeScreenStack.Navigator>
+      </SafeAreaView>
    );
 }
 

@@ -64,7 +64,7 @@ export default function AppNavigation() {
                   headerStyle: {
                      backgroundColor: COLOR.MAIN
                   },
-                  headerTintColor: '#ffffff'
+                  headerTintColor: COLOR.ACTIVE
                }}
             >
                <Stack.Screen name='Помощник конструктора' component={HomeTabs} options={{ headerShown: false }} />

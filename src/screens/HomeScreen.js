@@ -1,24 +1,38 @@
 import React, { } from "react";
-import { Image, View, Text, Button, StyleSheet } from "react-native";
+import { ImageBackground, View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { FontAwesome5 } from '@expo/vector-icons';
+import { COLOR, FONT, STYLES, TEXT, TEXT_STYLES } from "../types/theme";
 
 export default function HomeScreen({ navigation }) {
    return (
-      <SafeAreaView>
-         <Text>Перечень расчётов:</Text>
+      <SafeAreaView style={STYLES.CONTAINER}>
+         <Text style={TEXT.HEADER}>Добро пожаловать!</Text>
+         <Text style={styles.text}>Перечень расчётов:</Text>
          <View style={styles.row}>
-            <Image style={{ width: 50, height: 50 }} source={require('../../assets/calculations/pipe.png')} />
-            <Button onPress={() => navigation.navigate('Калькулятор трубы')} title='К расчёту' />
+            <Text>1. Расчёт характеристик трубы</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Калькулятор трубы')}>
+               <FontAwesome5 name="arrow-alt-circle-right" size={24} color="black" />
+            </TouchableOpacity>
          </View>
+         <Text style={styles.textSmall}>   В данный момент мы пополняем библиотеку расчётов. С радостью прислушаемся к вашим пожеланиям. Связь с нами на вкладке Info</Text>
       </SafeAreaView>
    );
 }
 
 const styles = StyleSheet.create({
-   center: {
-      flex: 1,
+   row: {
+      flexDirection: 'row',
+      width: '100%',
       alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#ffffff'
+      padding: 10,
+      justifyContent: 'space-between',
+      borderBottomWidth: 1
+   },
+   text: {
+      paddingBottom: 10
+   },
+   textSmall: {
+      fontSize: 12
    }
 });

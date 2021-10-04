@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { FONT } from "../types/theme";
+import { COLOR, FONT } from "../types/theme";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function AboutScreen({ navigation }) {
 
    return (
-      <SafeAreaView style={styles.center}>
+      <SafeAreaView style={styles.container}>
          <View style={{ alignItems: 'center' }}>
             <Image source={require('../../assets/986_logo.png')} style={styles.logo}></Image>
             <Text style={styles.text}>Все вопросы и пожелания присылать по адресу:</Text>
@@ -18,10 +18,12 @@ export default function AboutScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-   center: {
+   container: {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'space-between',
+      backgroundColor: COLOR.BACKGROUND,
+      padding: 10
    },
    text: {
       textAlign: 'center',

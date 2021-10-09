@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { ScrollView, View, Text, Image, TextInput, StyleSheet } from 'react-native';
 
 import { COLOR, STYLES, TEXT } from '../../types/theme'
@@ -7,10 +7,24 @@ export default function CalcPipe() {
 
    const [dia, setDia] = useState(null);
    const [thin, setThin] = useState(null);
+   const [value1, setValue1] = useState('-');
 
-   const setDiaHandler = (e) => {
-      console.log(e.current.value);
-   }
+   const setDiaHandler = (dia) => {
+      setDia(dia);
+      calc(dia, thin);
+   };
+
+   const setThinHandler = (thin) => {
+      setThin(thin);
+      calc(dia, thin);
+   };
+
+   const calc = (dia, thin) => {
+      let val1 = (Math.PI * ((+dia / 10) ** 4 - (+dia / 10 - 2 * (+thin / 10)) ** 4) / 64).toFixed(0);
+      if (val1 <= 0 || isNaN(val1)) val1 = '-'
+      setValue1(val1);
+
+   };
 
    return (
       <ScrollView>
@@ -25,7 +39,7 @@ export default function CalcPipe() {
                   keyboardType='numeric'
                   autoCorrect={false}
                   value={dia}
-                  onChange={setDiaHandler}
+                  onChangeText={setDiaHandler}
                />
             </View>
             <View style={styles.center}>
@@ -34,13 +48,15 @@ export default function CalcPipe() {
                   style={styles.input}
                   placeholder='t - толщина стенки  трубы в мм'
                   keyboardType='numeric'
+                  value={thin}
+                  onChangeText={setThinHandler}
                />
             </View>
             <View>
                <Text> Геометрические характеристики трубы:</Text>
                <View style={STYLES.ROW}>
                   <Text>Момент инерции J (см4)</Text>
-                  <Text>bhjbkj</Text>
+                  <Text>{value1}</Text>
                </View>
             </View>
          </View>

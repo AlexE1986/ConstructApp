@@ -16,21 +16,27 @@ export const TEXT = {
    HEADER: {
       fontFamily: FONT.BOLD,
       fontSize: 20,
-      marginBottom: 20
+      marginBottom: 10
+   },
+   BOLD: {
+      fontFamily: FONT.BOLD
+   },
+   REGULAR: {
+      fontFamily: FONT.REGULAR
    }
 }
 
-export const STYLES = {
+export const STYLE = {
+   WRAPPER: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
+   },
    CONTAINER: {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'flex-start',
-      padding: 25
-   },
-   GLOBALCONTAINER: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center'
+      padding: 25,
    },
    ROW: {
       flexDirection: 'row',
@@ -38,6 +44,16 @@ export const STYLES = {
    },
    BACKGROUND: {
       width: '100%',
-      height: '100%'
+      height: '100%',
+      alignItems: 'center',
+      resizeMode: 'repeat'
+   },
+   CENTER: {
+      alignItems: 'center'
    }
-}
+};
+
+export const SOURCE = {
+   BGIMAGE: require('../assets/background.png'),
+   LOGO: require('../assets/986_logo.png')
+};
